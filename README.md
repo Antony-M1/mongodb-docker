@@ -1,5 +1,10 @@
 # mongodb
 
+Mongo Express is added to access use [localhost:8081](http://localhost:8081/)
+
+username: `admin`
+password: `pass`
+
 **STEP 1**
 Clone the Project using this command
 ```
