@@ -36,3 +36,14 @@ For the reference check this [StackOverFlow](https://stackoverflow.com/questions
 
 # Other GitGub Repositories
 * [mongodb-sample-dataset](https://github.com/neelabalan/mongodb-sample-dataset/)
+
+# commands
+### Connect Container Shell
+```
+docker exec -it mongo mongo -u <username> -p <password> --authenticationDatabase admin
+```
+
+### Create Dtabase
+```
+use <DATABASE_NAME>
+```
