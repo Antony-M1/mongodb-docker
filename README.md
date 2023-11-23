@@ -37,6 +37,21 @@ For the reference check this [StackOverFlow](https://stackoverflow.com/questions
 # Other GitGub Repositories
 * [mongodb-sample-dataset](https://github.com/neelabalan/mongodb-sample-dataset/)
 
+# Load Data
+Run the below commands to load the sample data
+```
+python -m venv env
+```
+```
+source env\bin\activate
+```
+```
+pip install -r requirements.txt
+```
+```
+python load_data.py
+```
+
 # commands
 ### Connect Container Shell
 ```
