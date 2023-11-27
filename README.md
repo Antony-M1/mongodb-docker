@@ -1,10 +1,16 @@
+# Prerequisites
+* Python 3.10+
+* Docker
+
 # mongodb
 
-Mongo Express is added to access use [localhost:8081](http://localhost:8081/)
+**Mongo Express** is added to access use [localhost:8081](http://localhost:8081/)
 
 username: `admin`
+
 password: `pass`
 
+# Get Started
 **STEP 1**
 Clone the Project using this command
 ```
@@ -62,3 +68,11 @@ docker exec -it mongo mongo -u <username> -p <password> --authenticationDatabase
 ```
 use <DATABASE_NAME>
 ```
+
+# How to add your dataset
+* Create a folder prefix with `sample_`, for example `sample_mydata`, the folder name consider as a `Database Name`
+* Create a `.json` file inside the folder. you can create `n` number of files. each file is consider as a collection the `filename` consider as a `collection name`.
+* you can run the python script using this command
+* ```
+  python load_data.py
+  ```
