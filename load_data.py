@@ -2,8 +2,9 @@ import os
 import json
 from pathlib import Path
 from pymongo import MongoClient
+from pymongo.errors import DuplicateKeyError
 
-print('process started')
+print('🚀🚀🚀 process started 🚀🚀🚀')
 
 # MongoDB connection details
 mongo_uri = "mongodb://root:123@localhost:27017/?retryWrites=true&w=majority"
@@ -18,10 +19,8 @@ workspace_path = str(BASE_DIR)
 sample_folders = [folder for folder in os.listdir(workspace_path) if folder.startswith("sample_")]
 
 if sample_folders:
-    print(f"""
-            These are all the folder is going to load
-            {'/n'.join(sample_folders)}  
-        """)
+    folders_list = '\n🔴 ' + '\n🔴 '.join(sample_folders) + '\n ==============================================\n\n'
+    print(f"""\n\nThese are all the folder is going to load\n  {folders_list}""")
     
     for folder in sample_folders:
         folder_path = os.path.join(workspace_path, folder)
@@ -41,17 +40,24 @@ if sample_folders:
                     
                     # Insert documents into the collection
                     with open(file_path, "r") as file:
+                        count = 0
                         for line in file:
                             document = json.loads(line)
                             try:
-                                collection.insert_one(document)
+                                if isinstance(document.get('_id'), dict):
+                                    document['_id'] = document['_id']['$oid']
+                                else:
+                                    collection.insert_one(document)
+                            except DuplicateKeyError:
+                                continue
                             except Exception as e:
-                                print(f'Line error {e}')
+                                count += 1
+                        print(f"Fail Count:---------------------  {folder} - {collection_name} \n Count : {count}")
         except Exception as ex:
             print(f"Error:---------------------  {folder}\n {ex} \n\n")
     client.close()
-    print("Loading Process Done")
+    print("✅✅✅ Loading Process Done ✅✅✅")
 else:
-    print('There is no sample folders')
-    print('Sample Dataloading Process Stopped')
+    print('🥺🥺🥺 There is no sample folders')
+    print('🥺🥺🥺 Sample Dataloading Process Stopped')
 
