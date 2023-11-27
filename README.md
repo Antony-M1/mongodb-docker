@@ -62,7 +62,7 @@ python load_data.py
 [Documentation]()
 ### Connect Container Shell
 ```
-docker exec -it mongo mongo -u <username> -p <password> --authenticationDatabase admin
+docker exec -it mongo mongosh -u <username> -p <password> --authenticationDatabase admin
 ```
 
 ### Create Dtabase
