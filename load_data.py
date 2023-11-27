@@ -4,6 +4,14 @@ from pathlib import Path
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 
+
+def get_duplicate_key_error_log(count):
+    if count:
+        return f"{count} ❗"
+    else:
+        return count
+
+
 print('🚀🚀🚀 process started 🚀🚀🚀')
 
 # MongoDB connection details
@@ -42,6 +50,7 @@ if sample_folders:
                     with open(file_path, "r") as file:
                         count = 0
                         success_count = 0
+                        duplicate_key_error = 0
                         for line in file:
                             document = json.loads(line)
                             try:
@@ -52,10 +61,11 @@ if sample_folders:
                                     collection.insert_one(document)
                                     success_count += 1
                             except DuplicateKeyError:
+                                duplicate_key_error += 1
                                 continue
                             except Exception as e:
                                 count += 1
-                        print(f"\nℹ️  Log Details:---------------------\nDatabase : {folder}\nCollection : {collection_name}\nSuccess Count : {success_count} \nFail Count : {count}")
+                        print(f"\nℹ️  Log Details:---------------------\nDatabase : {folder}\nCollection : {collection_name}\nSuccess Count : {success_count} \nFail Count : {count}\nDuplicateKeyError : {get_duplicate_key_error_log(duplicate_key_error)}")
         except Exception as ex:
             print(f"Error:---------------------  {folder}\n {ex} \n\n")
     client.close()
@@ -63,4 +73,6 @@ if sample_folders:
 else:
     print('🥺🥺🥺 There is no sample folders')
     print('🥺🥺🥺 Sample Dataloading Process Stopped')
+
+
 
