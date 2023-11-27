@@ -51,6 +51,7 @@ db.product_list.insert({product_id:1, product_name:"Foot Ball", price:500})
 ```
 
 **Update Documents**
+
 Every Document Had `Unique` value `_id` in that field only the `Unique` value will be created. to get that you can check the Mongo Express.
 
 ![image](https://github.com/Antony-M1/mongodb-docker/assets/96291963/5f076943-4c3d-4569-a6bc-c190bfe2b79a)
@@ -61,3 +62,16 @@ db.product_list.updateOne(
    { $set: { price: 600 } }
 )
 ```
+Types of Update
+* updateOne
+* updateMany
+* replaceOne
+* findOneAndUpdate
+
+**Delete Document**
+```
+db.product_list.deleteOne({ _id: ObjectId('6564939c38e306b1860a50b1') })
+```
+Types of Delete:
+* deleteOne
+* deleteMany
