@@ -56,6 +56,7 @@ if sample_folders:
                             try:
                                 if isinstance(document.get('_id'), dict):
                                     document['_id'] = document['_id']['$oid']
+                                    collection.insert_one(document)
                                     success_count += 1
                                 else:
                                     collection.insert_one(document)
