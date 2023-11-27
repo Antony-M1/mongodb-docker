@@ -56,5 +56,8 @@ Every Document Had `Unique` value `_id` in that field only the `Unique` value wi
 ![image](https://github.com/Antony-M1/mongodb-docker/assets/96291963/5f076943-4c3d-4569-a6bc-c190bfe2b79a)
 
 ```
-db.product_list.updateOne({ _id: "6564939c38e306b1860a50b1" }, { $set: { price: 600 } })
+db.product_list.updateOne(
+   { _id: ObjectId('6564939c38e306b1860a50b1') },
+   { $set: { price: 600 } }
+)
 ```
