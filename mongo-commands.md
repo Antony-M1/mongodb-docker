@@ -83,3 +83,55 @@ Types of Delete:
 * deleteOne
 * deleteMany
 ---
+
+MongoDB is a NoSQL database that is known for its flexibility in handling various types of data. In MongoDB, data is stored in BSON (Binary JSON) format, which is a binary representation of JSON-like documents. MongoDB supports a variety of data types. Here are some of the primary data types supported by MongoDB:
+
+1. **String:**
+   - Holds UTF-8 character sequences.
+   - Example: `"Hello, MongoDB"`
+
+2. **Integer:**
+   - Represents a 32-bit signed integer.
+   - Example: `42`
+
+3. **Double:**
+   - Represents a 64-bit floating-point value.
+   - Example: `3.14`
+
+4. **Boolean:**
+   - Represents `true` or `false`.
+   - Example: `true`
+
+5. **ObjectId:**
+   - A 12-byte identifier typically employed as a primary key.
+   - Example: `ObjectId("507f1f77bcf86cd799439011")`
+
+6. **Date:**
+   - Represents a point in time, typically expressed as the number of milliseconds since the Unix epoch.
+   - Example: `ISODate("2023-04-10T12:00:00Z")`
+
+7. **Array:**
+   - Holds an ordered collection of values.
+   - Example: `["apple", "orange", "banana"]`
+
+8. **Embedded Document:**
+   - Allows you to nest documents inside other documents.
+   - Example: `{ name: "John", age: 30, address: { city: "New York", state: "NY" } }`
+
+9. **Binary Data:**
+   - Represents binary data, such as images or other types of files.
+   - Example: `BinData(0, "aGVsbG8=")` (Base64-encoded string)
+
+10. **Null:**
+    - Represents a null or undefined value.
+    - Example: `null`
+
+11. **Regular Expression:**
+    - Represents a regular expression for pattern matching.
+    - Example: `/^mongodb/i`
+
+12. **JavaScript Code:**
+    - Represents JavaScript code.
+    - Example: `function() { return "Hello, MongoDB!"; }`
+
+These data types can be used to model a wide range of structures and relationships within MongoDB. It's important to note that MongoDB is schema-free, meaning that documents in the same collection can have different fields and structures. This flexibility is one of the key advantages of MongoDB for handling diverse and evolving data.
