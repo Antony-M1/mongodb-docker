@@ -41,22 +41,25 @@ if sample_folders:
                     # Insert documents into the collection
                     with open(file_path, "r") as file:
                         count = 0
+                        success_count = 0
                         for line in file:
                             document = json.loads(line)
                             try:
                                 if isinstance(document.get('_id'), dict):
                                     document['_id'] = document['_id']['$oid']
+                                    success_count += 1
                                 else:
                                     collection.insert_one(document)
+                                    success_count += 1
                             except DuplicateKeyError:
                                 continue
                             except Exception as e:
                                 count += 1
-                        print(f"Fail Count:---------------------  {folder} - {collection_name} \n Count : {count}")
+                        print(f"\nℹ️  Log Details:---------------------\nDatabase : {folder}\nCollection : {collection_name}\nSuccess Count : {success_count} \nFail Count : {count}")
         except Exception as ex:
             print(f"Error:---------------------  {folder}\n {ex} \n\n")
     client.close()
-    print("✅✅✅ Loading Process Done ✅✅✅")
+    print("\n\n✅✅✅ Loading Process Done ✅✅✅")
 else:
     print('🥺🥺🥺 There is no sample folders')
     print('🥺🥺🥺 Sample Dataloading Process Stopped')
