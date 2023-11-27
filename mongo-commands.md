@@ -83,6 +83,7 @@ Types of Delete:
 * deleteOne
 * deleteMany
 ---
+### what are all the type of data we can store in mongodb?
 
 MongoDB is a NoSQL database that is known for its flexibility in handling various types of data. In MongoDB, data is stored in BSON (Binary JSON) format, which is a binary representation of JSON-like documents. MongoDB supports a variety of data types. Here are some of the primary data types supported by MongoDB:
 
