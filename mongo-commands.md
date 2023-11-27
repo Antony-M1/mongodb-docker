@@ -49,6 +49,13 @@ show collections
 ```
 db.product_list.insert({product_id:1, product_name:"Foot Ball", price:500})
 ```
+**Get Document**
+```
+db.product_list.find({ product_name: 'Foot Ball' })
+```
+Type of Fetch:
+* find
+* findOne
 
 **Update Documents**
 
