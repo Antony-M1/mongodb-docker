@@ -41,7 +41,7 @@ If the collection is created successfully, it will return `{ "ok" : 1 }`.
 ```
 show collections
 ```
-
+---
 ### CRUD Operations in Collections
 *Note: Over Here I'm Using The `product_list` Collection*
 
@@ -82,3 +82,4 @@ db.product_list.deleteOne({ _id: ObjectId('6564939c38e306b1860a50b1') })
 Types of Delete:
 * deleteOne
 * deleteMany
+---
